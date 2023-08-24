@@ -1,0 +1,38 @@
+version: '3'
+
+services:
+  db:
+    container_name: 'phisanuchai-postgres'
+    image: 'postgres:latest'
+    ports:
+      - 54322:5432
+    environment:
+      - POSTGRES_USER='phisanuchai'
+      - POSTGRES_PASSWORD='1p@ssw0rd66'
+    restart: 'unless-stopped'
+    
+  pgadmin:
+    container_name: 'phisanuchai-pgadmin'
+    image: 'dpage/pgadmin4:latest'
+    ports:
+      - 8080:80
+    environment:
+      - PGADMIN_DEFAULT_EMAIL='ryu.phisanuchai@gmail.com'
+      - PGADMIN_DEFAULT_PASSWORD='1p@ssw0rd66'
+    restart: 'unless-stopped'
+  
+  strapi:
+    container_name: 'phisanuchai-strapi'
+    image: dpage/pgadmin4:latest
+    ports:
+      - 1337:1337
+    environment:
+      - name=value
+      - DATABASE_CLIENT 'postgres'
+      - DATABASE_HOST='192.168.1.146'
+      - DATABASE_PORT='54322'
+      - DATABASE_NAME='strapi'
+      - DATABASE_USERNAME='phisanuchai'
+      - DATABASE_PASSWORD='1p@ssw0rd66'
+      - DATABASE_SSL='false'
+    restart: 'unless-stopped'
