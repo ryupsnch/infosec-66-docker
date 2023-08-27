@@ -17,7 +17,7 @@ services:
     ports:
       - 8080:80
     environment:
-      - PGADMIN_DEFAULT_EMAIL='ryu.phisanuchai@gmail.com'
+      - PGADMIN_DEFAULT_EMAIL='ryu.phitsanuchai@gmail.com'
       - PGADMIN_DEFAULT_PASSWORD='1p@ssw0rd66'
     restart: 'unless-stopped'
   
